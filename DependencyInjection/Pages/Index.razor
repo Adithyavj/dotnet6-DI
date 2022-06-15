@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using DependencyInjection.Logic
 @inject IDemoLogic logic;
+@inject ILogger<Index> logger;
 
 <PageTitle>Index</PageTitle>
 
@@ -19,5 +20,8 @@
     {
         // Normal Instanciation..
         //logic = new();
+        logger.LogInformation("Displaying information of {Value1} and {Value2}", 
+            logic.Value1, 
+            logic.Value2);
     }
 }
