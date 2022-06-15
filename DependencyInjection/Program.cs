@@ -1,3 +1,4 @@
+using DependencyInjection.Logic;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddTransient<IDemoLogic, BetterDemoLogic>(); // when asked for IDemoLogic, give DemoLogic
 
 var app = builder.Build();
 
